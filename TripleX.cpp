@@ -10,16 +10,15 @@ void PrintIntroduction(int Difficulty) {
     std::cout << "As you can see, a lock keeps the door safe and sound. \n";
     std::cout << "You might want to descovery what's behinde it... \n";
     std::cout << "------------------------------------- \n";
-
 }
 
 bool PlayGame(int Difficulty) {
 
     PrintIntroduction(Difficulty);
 
-    const int CodeA = rand() % 10;
-    const int CodeB = rand() % 10;
-    const int CodeC = rand() % 10;
+    const int CodeA = rand() % Difficulty + 1;
+    const int CodeB = rand() % Difficulty + 1;
+    const int CodeC = rand() % Difficulty + 1;
 
     const int CodeSum = CodeA + CodeB + CodeC;
     const int CodeProduct = CodeA * CodeB * CodeC;
