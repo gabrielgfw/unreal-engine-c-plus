@@ -17,9 +17,9 @@ bool PlayGame(int Difficulty) {
 
     PrintIntroduction(Difficulty);
 
-    const int CodeA = 4;
-    const int CodeB = 3;
-    const int CodeC = 2;
+    const int CodeA = rand() % 10;
+    const int CodeB = rand() % 10;
+    const int CodeC = rand() % 10;
 
     const int CodeSum = CodeA + CodeB + CodeC;
     const int CodeProduct = CodeA * CodeB * CodeC;
@@ -62,6 +62,7 @@ int main() {
         if(bLevelCompleted) {
             ++LevelDifficulty;
         }
+        
     }
     std::cout << "Muito bem, todos os niveis foram concluidos.";
     return 0;
