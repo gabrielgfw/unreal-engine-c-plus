@@ -1,7 +1,9 @@
 #include <iostream>
 
-void PrintIntroduction() {
+void PrintIntroduction(int Difficulty) {
 
+    std::cout << "------------------------------------- \n";
+    std::cout << "Difficulty Level: " << Difficulty << std::endl;
     std::cout << "------------------------------------- \n";
     std::cout << "You just woke up into a very strange room... \n";
     std::cout << "There's a door not so far away from where you are. \n";
@@ -11,9 +13,9 @@ void PrintIntroduction() {
 
 }
 
-void PlayGame() {
+bool PlayGame(int Difficulty) {
 
-    PrintIntroduction();
+    PrintIntroduction(Difficulty);
 
     const int CodeA = 4;
     const int CodeB = 3;
@@ -41,17 +43,26 @@ void PlayGame() {
 
     if(GuessSum == CodeSum && GuessProduct == CodeProduct) {
         std::cout << "\nYou win!\n";
+        return true;
     } else {
         std::cout << "\nWrong Answer!\n";
+        return false;
     }
 }
 
 int main() {
+    int LevelDifficulty = 1;
+    int const MaxLevelDifficulty = 5;
 
-    while(true) {
-        PlayGame();
+    while(LevelDifficulty <= MaxLevelDifficulty) {
+        bool bLevelCompleted = PlayGame(LevelDifficulty);
         std::cin.clear();  // Clear any erros.
         std::cin.ignore(); // Discards the buffer.
+
+        if(bLevelCompleted) {
+            ++LevelDifficulty;
+        }
     }
+    std::cout << "Muito bem, todos os niveis foram concluidos.";
     return 0;
 }
